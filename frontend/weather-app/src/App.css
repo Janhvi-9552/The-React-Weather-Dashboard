@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Dark palette */
+  --bg: #111827;              /* dark background */
+  --card-bg: #1f2937;         /* slightly lighter card background */
+  --primary: #3b82f6;         /* blue accent */
+  --primary-hover: #2563eb;   /* deeper blue on hover */
+  --accent: #10b981;          /* teal accent */
+  --text: #f9fafb;            /* near-white text */
+  --muted: #9ca3af;           /* muted grey text */
+  --border: #374151;          /* dark border */
+  --error: #f87171;           /* soft red for errors */
+  --shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Title */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search-bar input {
+  width: 260px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar input::placeholder {
+  color: var(--muted);
+}
+
+.search-bar input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.search-bar button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.search-bar button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* History */
+.history {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.history h3 {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.history button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  margin: 4px;
+  transition: background 0.15s ease;
+}
+
+.history button:hover {
+  background: #059669;
+}
+
+/* Weather card */
+.weather-card {
+  max-width: 360px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+}
+
+.weather-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.weather-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.weather-card img {
+  width: 80px;
+  height: 80px;
+  margin-top: 8px;
+}
+
+/* Forecast grid */
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin-top: 18px;
+}
+
+.forecast-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.forecast-card h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.forecast-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.forecast-card img {
+  width: 60px;
+  height: 60px;
+  margin-top: 6px;
+}
+
+/* Error */
+p[style*="red"] {
+  color: var(--error) !important;
+  font-weight: 500;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  .search-bar input { width: 180px; }
+  .weather-card { max-width: 100%; }
+}
